@@ -16,10 +16,11 @@ namespace Mission.Models
         [Range(0, 1000, ErrorMessage = "Le {0} doit être entre {1} et {2}")]
         [DataType(DataType.Currency)]
         public decimal PrixVente { get; set; }
+
         [ForeignKey("Categorie")]
         public int CategorieId { get; set; }
-      
-     
+
+        [ValidateNever]
         public Categorie Categorie { get; set; }
 
 

@@ -71,7 +71,8 @@ namespace Mission.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-         
+
+            produit_VM.CategorieList = new SelectList(_context.Categories, "Id", "Titre");
             return View(produit_VM);
         }
 

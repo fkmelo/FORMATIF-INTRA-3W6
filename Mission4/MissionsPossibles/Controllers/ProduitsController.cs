@@ -49,7 +49,8 @@ namespace Mission.Controllers
         // GET: Produits/Create
         public IActionResult Create()
         {
-         
+            var liste = _context.Categories.ToList();
+            ViewBag.CategorieId = new SelectList(liste, "Id", "Titre");
             return View();
         }
 
@@ -66,7 +67,9 @@ namespace Mission.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-           
+
+            var liste = _context.Categories.ToList();
+            ViewBag.CategorieId = new SelectList(liste, "Id", "Titre");
             return View(produit);
         }
 
